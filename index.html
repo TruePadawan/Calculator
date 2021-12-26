@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="backend.js" defer></script>
+    <title>Calculator</title>
+</head>
+<body>
+    <main>
+        <h1>Simple Calculator</h1>
+        <div class="calculator-frame">
+            <div class="calculator-display">
+                <div class="latest-calculation">
+                    <span id="calculations"></span>
+                </div>
+                <div class="latest-output">
+                    <span id="result">0</span>
+                </div>
+            </div>
+
+            <div class="calculator-buttons">
+                <div class="clear-delete-buttons">
+                    <button id="clearButton">CLEAR</button>
+                    <button id="deleteButton">DELETE</button>
+                </div>
+                <div class="buttons">
+                    <div class="button-row">
+                        <button>7</button>
+                        <button>8</button>
+                        <button>9</button>
+                        <button class="special-button">/</button>
+                    </div>
+                    <div class="button-row">
+                        <button>4</button>
+                        <button>5</button>
+                        <button>6</button>
+                        <button class="special-button">X</button>
+                    </div>
+                    <div class="button-row">
+                        <button>1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button class="special-button">-</button>
+                    </div>
+                    <div class="button-row">
+                        <button>.</button>
+                        <button>0</button>
+                        <button>=</button>
+                        <button class="special-button">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

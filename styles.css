@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *:after {
+    box-sizing: inherit;
+    
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: green;
+}
+
+button {
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(224, 241, 224);
+}
+
+button:hover {
+    background-color: rgb(163, 231, 163);
+}
+
+button:active {
+    background-color: rgb(100, 221, 100);
+}
+
+.calculator-frame {
+    background-color: black;
+    border-radius: 5px;
+    max-width: 90%;
+    width: 22em;
+    height: 30em;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 1em;
+}
+
+.calculator-display {
+    outline: 1px solid green;
+    border-radius: 5px;
+    height: 5em;
+    display: flex;
+    flex-direction: column;
+}
+
+.calculator-display span {
+    color: red;
+}
+
+.calculator-display div {
+    width: 100%;
+    height: 100%;
+}
+
+.calculator-buttons {
+    outline: 1px solid green;
+    border-radius: 5px;
+    height: 22em;
+    display: flex;
+    flex-direction: column;
+}
+
+.latest-calculation {
+    height: 30%;
+}
+
+.latest-calculation span {
+    color: goldenrod;
+}
+
+.latest-output {
+    height: 70%;
+    font-size: 2em;
+}
+
+.latest-calculation, .latest-output {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 5px;
+}
+
+.clear-delete-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.clear-delete-buttons button {
+    padding: 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 3px;
+    background-color: rgba(221, 51, 51, 0.836);
+}
+
+.clear-delete-buttons button:last-child {
+    background-color: rgba(84, 194, 84, 0.836);
+}
+
+.clear-delete-buttons button:hover {
+    background-color: rgba(243, 14, 14, 0.945);
+}
+
+.clear-delete-buttons button:last-child:hover {
+    background-color: rgba(12, 255, 12, 0.836);
+}
+
+.clear-delete-buttons button:active {
+    background-color: rgba(221, 51, 51, 0.836);
+}
+
+.clear-delete-buttons button:last-child:active {
+    background-color: rgba(84, 194, 84, 0.836);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px;
+    height: 100%;
+    gap: 5px;
+}
+
+.button-row {
+    flex-grow: 1;
+    display: flex;
+    gap: 5px;
+}
+
+.button-row button {
+    width: 40%;
+}
+
+.special-button:hover {
+    background-color:rgba(241, 19, 19, 0.89);
+}
+
+.special-button:active {
+    background-color:rgba(190, 41, 41, 0.89);
+}
