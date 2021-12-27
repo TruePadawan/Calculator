@@ -16,7 +16,7 @@ let decimalButton = document.querySelector('.extra-special');
 let equalityButton = document.querySelector('#equality');
 
 let currentOperator = '';
-let secondOperand = false;
+let equalityUsed = false; // SPECIAL VAR FOR CHECKING IF A CALC WAS EVALUATED WITH EQ SIGN
 
 // FUNCTIONS USED IN CALC LOGIC
 const Add = (a, b) => Number(a) + Number(b);
@@ -44,25 +44,30 @@ const getOperands = (operator) => {
     let operands = calculations.textContent.split(operator);
     return {
         a: operands[0],
-        b: operands[1],
+        b: result.textContent,
         operator
     };
 }
 
 const calc = (data) => {
+    
     let res = operate(data.operator,data.a,data.b);
+
+    if ( isNaN(res) || isFinite(res) === false ) return 0;
+
     if (res.toString().length > 4)
     {
-        result.textContent = res.toFixed(3);
-        return;
+        return res.toFixed(3);
     }
-    result.textContent = res;
+    return res;
 }
 /////////////////////////////
 // EVENT LISTENERS FOR BUTTONS
 clearButton.addEventListener('click', () => {
     result.textContent = 0;
     calculations.textContent = '';
+    currentOperator = '';
+    secondOperand = false;
 });
 
 deleteButton.addEventListener('click', () => {
@@ -95,19 +100,26 @@ nonSpecialButtons.forEach((button) => {
 
 specialButtons.forEach((button) => {
     button.addEventListener('click', () => {
-        if (secondOperand)
+        if (!equalityUsed)
         {
-            let newRes = calculations.textContent + result.textContent;
-            calculations.textContent = newRes;
-            let operands = getOperands(currentOperator);
-            calc(operands);
+            if (needsTobeEvaluated())
+            {
+                let operands = getOperands(currentOperator);
+                let newRes = calc(operands);
+                console.log(newRes);
+                calculations.textContent = `${newRes} ${button.textContent}`;
+                currentOperator = button.textContent;
+                result.textContent = '0';
+                return;
+            }
+        }else
+        {
+            equalityUsed = false;
         }
-        
+
         currentOperator = button.textContent;
-        let newRes = result.textContent + currentOperator;
-        calculations.textContent = newRes;
+        calculations.textContent = `${result.textContent} ${currentOperator}`;
         result.textContent = '0';
-        secondOperand = true;
     })
 });
 
@@ -117,5 +129,15 @@ decimalButton.addEventListener('click', () => {
         let newRes = result.textContent + '.';
         result.textContent = newRes;
     }
-})
+});
+
+equalityButton.addEventListener('click', () => {
+    if (needsTobeEvaluated())
+    {
+        let operands = getOperands(currentOperator);
+        calculations.textContent = `${operands.a} ${currentOperator} ${operands.b} =`;
+        result.textContent = calc(operands);
+        equalityUsed = true;
+    }
+});
 result.textContent = 0;
