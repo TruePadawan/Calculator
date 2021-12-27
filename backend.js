@@ -94,7 +94,6 @@ nonSpecialButtons.forEach((button) => {
                 result.textContent = newRes;
             }
         }
-        console.log(`Button ${button.textContent} clicked!`);
     })
 });
 

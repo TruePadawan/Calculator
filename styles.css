@@ -44,7 +44,7 @@ button:active {
     height: 30em;
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 20px;
     gap: 1em;
 }
 
