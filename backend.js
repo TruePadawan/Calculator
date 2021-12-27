@@ -28,6 +28,12 @@ clearButton.addEventListener('click', () => {
     calculations.textContent = '';
 });
 
+deleteButton.addEventListener('click', () => {
+    if (result.textContent.length > 1)
+    {
+        result.textContent = result.textContent.substring(0, result.textContent.length - 1);
+    }
+});
 nonSpecialButtons.forEach((button) => {
     button.addEventListener('click', () => {
         if (result.textContent === '0')
@@ -54,4 +60,3 @@ decimalButton.addEventListener('click', () => {
     }
 })
 result.textContent = 0;
-console.log(nonSpecialButtons);
